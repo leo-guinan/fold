@@ -140,7 +140,9 @@ test('a long queue drops beats instead of falling behind forever', () => {
   const { stage } = makeShow();
   const got = Array.from({ length: 30 }, (_, i) => stage.put({ op: 'POST', actor: 'clerk', dur: 2, args: { id: 'q' + i } }));
   assert.ok(got.filter(Boolean).length < 30 && got.filter(Boolean).length >= 9); assert.ok(stage.health().droppedBeats > 0);
-  assert.ok(Math.max(...got.filter(Boolean).map(e => e.t)) <= 20 + 1e-9, 'nothing is staged past maxWait');
+  assert.ok(Math.max(...got.filter(Boolean).map(e => e.t)) <= 21 + 1e-9, 'nothing queues more than maxWait behind the time it asked for');
+  const far = stage.put({ op: 'POST', actor: 'planner', dur: 1, t: 600, args: { id: 'later' } });
+  assert.equal(far.t, 600, 'a beat that asks for a time far ahead gets it: the limit is on queueing, not on planning');
 });
 
 test('idle beats fill the quiet, and stop when something happens', () => {

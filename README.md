@@ -113,6 +113,7 @@ One rule makes this work: once an event has ended, its effect must not depend on
 - `node tools/stills.mjs <page> --times 1,4,8 --out sheet.png`: stills and contact sheets.
 - `node tools/room.mjs <show.mjs> [--journal file] [--signals <sse url>]`: the control room for a live show.
 - `node tools/stream.mjs <page url> --to rtmp://…|file`: broadcasts a live page in real time (Playwright and ffmpeg).
+- `node tools/week.mjs gather|check|air|cuts`: produces an edition of the Week.
 
 Any page that sets `window.__fold` (see `EngineHooks`) can be exported. The export tools also take a full `http://` URL, which is how a clip of a live show is cut from its control room's journal.
 
@@ -123,6 +124,10 @@ Any page that sets `window.__fold` (see `EngineHooks`) can be exported. The expo
 ## Demo: the Night Desk
 
 `demos/live-desk` is a show with no end. A signal arrives (a watched page changed, someone sent a note) and a card is posted on the desk; a card with no headline is refused, and the refusal is shown; when nothing happens the desk checks the line. `show.ts` holds the ops and the rules for what signals mean, and runs in both the control room and the page. `style.ts` holds the look.
+
+## Demo: the Week
+
+`demos/week` is a weekly edition of Future Radio: Borges remembers, Leonardo creates, Agnolo keeps score. An edition is a plan of dated, hashed receipts and lines that cite them, checked by `tools/week.mjs` before it airs; the world refuses any line that cites a receipt nobody filed. The same plan airs in the live stream and exports as a video with vertical cuts. [docs/WEEK.md](docs/WEEK.md).
 
 ## In production
 

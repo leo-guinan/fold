@@ -1,0 +1,685 @@
+{
+ "schema": "fold.week.v1",
+ "title": "The Week: November 2 to 8",
+ "week": {
+  "from": "2026-11-02",
+  "to": "2026-11-09",
+  "label": "NOV 2 – NOV 8, 2026  ·  EDITION 1"
+ },
+ "sources": [
+  {
+   "name": "archive",
+   "status": "ok",
+   "note": "221 posts by @leo_guinan, from the Community Archive"
+  },
+  {
+   "name": "channel",
+   "status": "partial",
+   "note": "5 episode links found in posts; the channel feed is not connected yet"
+  },
+  {
+   "name": "newsletter",
+   "status": "missing",
+   "note": "the feed could not be reached; no issue is on file"
+  }
+ ],
+ "receipts": [
+  {
+   "id": "r01",
+   "kind": "tweet",
+   "date": "2026-11-02",
+   "url": "https://x.com/leo_guinan/status/2117263279307272671",
+   "author": "@leo_guinan",
+   "quote": "Leonardo and Borges discovered the book \"If Anyone Builds It, Everyone Dies\" and had a discussion about it:\nhttps://youtu.be/7mmUOVwz2fM?si=DzDVbaXv1TR2D_7A",
+   "likes": 0,
+   "retweets": 0,
+   "sha256": "7157765a45af280893096d94adf0e03f123d03fbf6b2f79bd2663c8312146bbe"
+  },
+  {
+   "id": "r02",
+   "kind": "tweet",
+   "date": "2026-11-02",
+   "url": "https://x.com/leo_guinan/status/2117370843164766368",
+   "author": "@leo_guinan",
+   "quote": "If you want to hear Leonardo da Vinci, Jorge Luis Borges, and Friedrich Hayek discuss this paper, you're in luck!\nhttps://youtu.be/h7fCUDZWkVA",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "d9da546b4c3c75b6af5378f66e26a9dace4292df339e21d847f92f006585903e"
+  },
+  {
+   "id": "r03",
+   "kind": "tweet",
+   "date": "2026-11-04",
+   "url": "https://x.com/leo_guinan/status/2117961772384584040",
+   "author": "@leo_guinan",
+   "quote": "@strangestloop You are on the Art Bus. Welcome to the ride.\n\nI'd love if you have a chance to watch this video and see if it does you service.\n\nhttps://www.youtube.com/watch?v=5GgfRN1oz5s\n\nLeonardo da Vinci and Jorge Luis Borges have some thoughts on your site.",
+   "likes": 1,
+   "retweets": 2,
+   "sha256": "8caea6b15e9cc490c286c94ed5c6b4b37d02e0561b1bddfcbc041633f7a832c5"
+  },
+  {
+   "id": "r04",
+   "kind": "tweet",
+   "date": "2026-11-03",
+   "url": "https://x.com/leo_guinan/status/2117697447342588163",
+   "author": "@leo_guinan",
+   "quote": "Tomorrow I have to submit to the hackathon.\n\nI've got a really fucking cool demo.\n\nJust getting it tightened up.",
+   "likes": 0,
+   "retweets": 0,
+   "sha256": "ee367595b4c27b7d77a55617ddfd3219bfc9d32d414284e3c3f68a8225afd7e7"
+  },
+  {
+   "id": "r05",
+   "kind": "tweet",
+   "date": "2026-11-05",
+   "url": "https://x.com/leo_guinan/status/2118153344850006098",
+   "author": "@leo_guinan",
+   "quote": "Submitted. Now we make it viral.",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "e21c7fbab01b3595e5df5331b952a3072e848fffdce59f4f147dac9911b5e784"
+  },
+  {
+   "id": "r06",
+   "kind": "tweet",
+   "date": "2026-11-05",
+   "url": "https://x.com/leo_guinan/status/2118150578110886212",
+   "author": "@leo_guinan",
+   "quote": "Is this tweet worth $1M?\n\nCan it get 1M Views?\n\nDoes this show what's possible with the winning entry to the @Meta Hackathon?\n\nThis is a movie we made, for one person.\n\n@Steph_Curdy - based on the information you have, can you predict any of these answers?\n\nWhat about after watching the film?\n\nIf possible, please drop the answers below. And please like and retweet, this tweet has the potential to win $20K simply by having the highest engagement of the entered viral tweets.",
+   "likes": 12,
+   "retweets": 9,
+   "sha256": "75d210c8001d34556b796ba823efc62c378a67d813197ac0fb1117851b83a4a6"
+  },
+  {
+   "id": "r07",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118525135091052865",
+   "author": "@leo_guinan",
+   "quote": "What if I pair the tweet with a 24/7 livestream? https://x.com/i/broadcasts/2ZBXjbaLozVXjQ?s=20\n\nWill people see me then? 🤔\n\nThe amount of work I've had to do in order to get 500 views is ridiculous.\n\nShouldn't the internet be easier?",
+   "likes": 0,
+   "retweets": 0,
+   "sha256": "e5ec7effac2b0c6f16d5263ed2e57f228e5f98ef56496b9dcaf64e9b2e1d8d4f"
+  },
+  {
+   "id": "r08",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118694631936250353",
+   "author": "@leo_guinan",
+   "quote": "This stream is being stupidly difficult to get right.\n\nThe connection exists locally but something is interfering with the X endpoint and it's not getting there.",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "855c5881e8a004b2b43f0ab768c0812f3c5441c77904934b86a7b553982d3e3c"
+  },
+  {
+   "id": "r09",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118722578328015214",
+   "author": "@leo_guinan",
+   "quote": "Yeah. \n\nThe idea was the show would livestream all of its previous episodes and react live with “breaking news” alerts any time someone commented on the thread, riffing on whatever happened, and returning to the broadcast. \n\nIt worked exactly one time, then died and I haven’t gotten it back up. \n\nHacking together a different method this morning that should work. Or at least trying in between forced cuddle sessions. \n\n(Which I abruptly ended by dropping my phone on her as I was attempting to type this one handed, resulting in an upset cat, a bleeding arm, and a longer than intended tweet)",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "d3de03bb5280bc90195913701145608ccd861b6b0cb76540c1a8a455cc30993b"
+  },
+  {
+   "id": "r10",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118740041723674909",
+   "author": "@leo_guinan",
+   "quote": "@annalea_l ok now we're live with the show. this version is working.",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "f6bf68988261367b1437591100b3fa292b6a99cdbc84f44e8eb296c3929b2bc7"
+  },
+  {
+   "id": "r11",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118741213356404866",
+   "author": "@leo_guinan",
+   "quote": "Artups take you from -1 to 0, so you have a chance to reset your future. https://x.com/i/article/2118740813672796160",
+   "likes": 1,
+   "retweets": 1,
+   "sha256": "ff9f618f28698e0da8fbc78cb731e4464e66e53b7630df57c64cc2204e3ffd6a"
+  },
+  {
+   "id": "r12",
+   "kind": "tweet",
+   "date": "2026-11-04",
+   "url": "https://x.com/leo_guinan/status/2118014654949794144",
+   "author": "@leo_guinan",
+   "quote": "This makes me so happy. \n\nVibecamp is doing so much good for the world and it should be a lot easier for them. \n\nArm the artists with money and let them cook. \n\nCan’t wait to see what magic this becomes for the world.",
+   "likes": 7,
+   "retweets": 1,
+   "sha256": "8592853e911caced88c6be7f9c7ae7b7441e1f4bd656fc5fd152d3b3d7bbd091"
+  },
+  {
+   "id": "r13",
+   "kind": "tweet",
+   "date": "2026-10-25",
+   "url": "https://x.com/leo_guinan/status/2114383805721305401",
+   "author": "@leo_guinan",
+   "quote": "Arm the Artists.\n\nArt/Acc.\n\nWe're going to War.",
+   "likes": 2,
+   "retweets": 2,
+   "sha256": "c38b7df21013625f473e94fb56d8daf21d22c302da1e5d6d15682365e6b89f67"
+  },
+  {
+   "id": "r14",
+   "kind": "tweet",
+   "date": "2026-11-07",
+   "url": "https://x.com/leo_guinan/status/2118893351864803443",
+   "author": "@leo_guinan",
+   "quote": "New https://t.co/r5ZIMZ7yBt landing page.\n\nI took the narratives I've been dropping under my pinned tweet and now have it set up to show different movies and ask you which one you'd rather support the future of.\n\nThe goal of this experiment: to showcase that everyone has a chance to be an artist by making art and sharing your progress.\n\nWhile also showcasing that everyone can be a patron, and pay to continue an artist's work.\n\nNothing here is finished. It's all a work in progress.\n\nBut it all needs help getting over the finish line.\n\nI've got a week for it to make $3K for its own survival, or this experiment fails and its back to the drawing board.\n\nI've been thinking about the idea of tech that dies.\n\nEverything is an experiment that has to pay for itself. If it doesn't, it should go away.\n\nThis landing page will be the first to go. I want it to be simpler. I'm thinking of something now like \"Two Narratives, You Decide\" with the actual videos the focus.\n\nBut I'm still playing with ideas. I don't have anything I love yet. \n\nI'll have the design locked in by sunday night.",
+   "likes": 2,
+   "retweets": 0,
+   "sha256": "857f276f38bc8c344e7240a2691155b2205a759589bd31763bbc5683650e2f65"
+  },
+  {
+   "id": "r15",
+   "kind": "tweet",
+   "date": "2026-11-07",
+   "url": "https://x.com/leo_guinan/status/2119066074528509978",
+   "author": "@leo_guinan",
+   "quote": "@bokmanhi_ Continuing https://story.markets made $100 in its first week of life before I really had the stories competing.\n\nSo that's currently in the lead but I have to drive traffic to it this week now that I have the stories there.\n\nWe see what narratives people want to support.",
+   "likes": 0,
+   "retweets": 0,
+   "sha256": "f2980ac1bdbb02c3110df192e445e647b64fe06e6b33bfc9d06400ee4452ed31"
+  },
+  {
+   "id": "r16",
+   "kind": "tweet",
+   "date": "2026-11-07",
+   "url": "https://x.com/leo_guinan/status/2119108412512579733",
+   "author": "@leo_guinan",
+   "quote": "Installing a \"World Lens\" into the Future Radio production flow.\n\nIt's an in-show browser that allows the characters to pull up URLs in compressed ways so they can use them to advance their plot.\n\nthey are currently running it over @VextLabs so they can plot the future success of @annalea_l.\n\n(she really impressed them and they are making a show for her)",
+   "likes": 2,
+   "retweets": 0,
+   "sha256": "b1fd2264dc698fdae0c06220b0e9cedc411dab0b9571af6e9811f326cf498330"
+  },
+  {
+   "id": "r17",
+   "kind": "tweet",
+   "date": "2026-11-08",
+   "url": "https://x.com/leo_guinan/status/2119476235084652625",
+   "author": "@leo_guinan",
+   "quote": "Sonnet is a little better, but didn't remember to use the entire animation engine we built. So it's a basic set of robots that was drawn and voiced.\n\n🤷‍♂️\n\nTime to see if I can get it to use that engine and update the visuals",
+   "likes": 0,
+   "retweets": 0,
+   "sha256": "973a1a97be43e7f0d95b00e479748b4b2d6790fec6f8903fd23d26386a9dbeec"
+  },
+  {
+   "id": "r18",
+   "kind": "tweet",
+   "date": "2026-11-08",
+   "url": "https://x.com/leo_guinan/status/2119512633741296055",
+   "author": "@leo_guinan",
+   "quote": "This video isn't moving the way I had hoped. \n\nSo I'm going to up the ante. I have a special request in this next movie.\n\nIt's addressed to @dhh - I want to ask him for help making a better future.\n\nHere's the trailer for it. If it captures his attention, the movie is below it.",
+   "likes": 1,
+   "retweets": 2,
+   "sha256": "1bce1af2b665a0789447f8a6d1bed79e4d4d2c0ba556ddbfca5d85812d59b13d"
+  },
+  {
+   "id": "r19",
+   "kind": "tweet",
+   "date": "2026-11-07",
+   "url": "https://x.com/leo_guinan/status/2119179407801946327",
+   "author": "@leo_guinan",
+   "quote": "@annalea_l We have a competition.  \n\nJuwel vs Bend. \n\nWe show investors what they can’t see today",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "179e1a0ddeaf487cc5fd1a858f3cee052b1c85cab0bb6e3502c5a7e80e97bedb"
+  },
+  {
+   "id": "r20",
+   "kind": "tweet",
+   "date": "2026-11-06",
+   "url": "https://x.com/leo_guinan/status/2118783045713146008",
+   "author": "@leo_guinan",
+   "quote": "@annalea_l one of the next things I'm thinking about: having them build a product and launch it themselves on the air.\n\nI think I should set up a countdown to them launching their product and then putting it on @Buildhop_io.\n\nWith zero direction from me other than the idea.\n\nfeel like that",
+   "likes": 1,
+   "retweets": 0,
+   "sha256": "c3da8f20589fdcd2c705b5a020493bd1522248abfadf527056d69df41ff2b67b"
+  }
+ ],
+ "carried": [],
+ "segments": [
+  {
+   "id": "open",
+   "kind": "open",
+   "title": "The week of November second",
+   "lines": [
+    {
+     "who": "borges",
+     "say": "This is the week of November second, read back from what was written down while it was happening."
+    },
+    {
+     "who": "agnolo",
+     "say": "Three sources. The archive gave two hundred and twenty-one posts. The channel gave five episodes, by their links. The newsletter gave us nothing we could reach, and I will say so every week until it does."
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "recap",
+   "title": "What happened",
+   "lines": [
+    {
+     "who": "borges",
+     "say": "On the third he wrote that the hackathon entry was due the next day, and that the demo only needed tightening.",
+     "cite": "r04",
+     "show": {
+      "receipt": "r04"
+     }
+    },
+    {
+     "who": "borges",
+     "say": "On the fifth, one line. Submitted. Now we make it viral.",
+     "cite": "r05",
+     "show": {
+      "receipt": "r05"
+     }
+    },
+    {
+     "who": "borges",
+     "say": "Then the wager. One post, a film made for one person, and a prize for whichever entry drew the most attention.",
+     "cite": "r06",
+     "show": {
+      "receipt": "r06"
+     }
+    },
+    {
+     "who": "borges",
+     "say": "On the sixth, between broadcasts, a manifesto. Artups take you from minus one to zero.",
+     "cite": "r11",
+     "show": {
+      "receipt": "r11"
+     }
+    },
+    {
+     "who": "borges",
+     "say": "And on the seventh the cast were given a browser of their own. He called it a World Lens.",
+     "cite": "r16",
+     "show": {
+      "receipt": "r16"
+     }
+    }
+   ]
+  },
+  {
+   "id": "made",
+   "kind": "highlight",
+   "title": "What was made",
+   "lines": [
+    {
+     "who": "leonardo",
+     "say": "We read a book that says everyone dies, and we discussed it on the air. I am told this is called an episode.",
+     "cite": "r01",
+     "show": {
+      "receipt": "r01"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "Hayek joined us for a paper. Three at one table and not one of us living. A good room.",
+     "cite": "r02",
+     "show": {
+      "receipt": "r02"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "And one for a stranger's website, sent out on the Art Bus. Five episodes were shared in his posts this week.",
+     "cite": "r03",
+     "show": {
+      "receipt": "r03"
+     }
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "kind": "numbers",
+   "title": "The count",
+   "lines": [
+    {
+     "who": "agnolo",
+     "say": "Two hundred and twenty-one posts in seven days. One hundred of them were replies. He spent the week in other people's threads.",
+     "show": {
+      "stats": {
+       "title": "Seven days, by the archive",
+       "items": [
+        {
+         "label": "posts",
+         "value": "221"
+        },
+        {
+         "label": "replies",
+         "value": "100"
+        },
+        {
+         "label": "quote posts",
+         "value": "58"
+        },
+        {
+         "label": "originals",
+         "value": "53"
+        },
+        {
+         "label": "reposts",
+         "value": "10"
+        },
+        {
+         "label": "likes received",
+         "value": "183"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "The sixth was the peak. Forty-eight posts, on the day the broadcast would not stay up.",
+     "show": {
+      "chart": {
+       "title": "Posts per day",
+       "bars": [
+        {
+         "label": "Mon 2",
+         "value": 28
+        },
+        {
+         "label": "Tue 3",
+         "value": 29
+        },
+        {
+         "label": "Wed 4",
+         "value": 24
+        },
+        {
+         "label": "Thu 5",
+         "value": 24
+        },
+        {
+         "label": "Fri 6",
+         "value": 48,
+         "mark": true
+        },
+        {
+         "label": "Sat 7",
+         "value": 27
+        },
+        {
+         "label": "Sun 8",
+         "value": 41
+        }
+       ],
+       "note": "Dates are in universal time, as the archive records them."
+      }
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "The best-received post of the week was the wager itself. Twelve likes. Nine reposts.",
+     "cite": "r06",
+     "show": {
+      "receipt": "r06"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "Second place was not about him at all. Seven likes, for being glad that someone else got funded.",
+     "cite": "r12",
+     "show": {
+      "receipt": "r12"
+     }
+    }
+   ]
+  },
+  {
+   "id": "trend",
+   "kind": "trend",
+   "title": "What is growing",
+   "lines": [
+    {
+     "who": "agnolo",
+     "say": "A phrase. Arm the artists. Once, three weeks ago. Eleven times the week after. Eleven again this week.",
+     "show": {
+      "chart": {
+       "title": "“Arm the artists”, uses per week",
+       "bars": [
+        {
+         "label": "Oct 19",
+         "value": 1
+        },
+        {
+         "label": "Oct 26",
+         "value": 11
+        },
+        {
+         "label": "Nov 2",
+         "value": 11,
+         "mark": true
+        }
+       ],
+       "note": "Every post in the archive containing the phrase, September 14 to November 8."
+      }
+     }
+    },
+    {
+     "who": "borges",
+     "say": "It began on October twenty-fifth, as a declaration of war.",
+     "cite": "r13",
+     "show": {
+      "receipt": "r13"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "Here is the part he will not enjoy. Twenty-four uses in the whole archive, and all twenty-four are his. A slogan is not a movement until someone else says it.",
+     "show": {
+      "chart": {
+       "title": "Who says “arm the artists”",
+       "bars": [
+        {
+         "label": "@leo_guinan",
+         "value": 24,
+         "mark": true
+        },
+        {
+         "label": "everyone else",
+         "value": 0
+        }
+       ],
+       "note": "The archive only holds people who uploaded theirs. Absence here is not proof nobody said it."
+      }
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "The show's own name. Thirteen mentions last week, thirteen this week. Flat. One mention in the archive came from somebody else.",
+     "show": {
+      "chart": {
+       "title": "“Future Radio”, mentions per week",
+       "bars": [
+        {
+         "label": "Oct 26",
+         "value": 13
+        },
+        {
+         "label": "Nov 2",
+         "value": 13,
+         "mark": true
+        }
+       ],
+       "note": "28 mentions in all: 27 by @leo_guinan, 1 by @strangestloop."
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "failed",
+   "kind": "failure",
+   "title": "What failed",
+   "lines": [
+    {
+     "who": "borges",
+     "say": "The broadcast. In his words: it worked exactly one time, then died.",
+     "cite": "r09",
+     "show": {
+      "receipt": "r09"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "The next morning it was still down. The cause he gave: something between his machine and the platform.",
+     "cite": "r08",
+     "show": {
+      "receipt": "r08"
+     }
+    },
+    {
+     "who": "borges",
+     "say": "It came back the same day. This version is working, he wrote.",
+     "cite": "r10",
+     "show": {
+      "receipt": "r10"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "The reach. By his own count, about five hundred views for all of that work.",
+     "cite": "r07",
+     "show": {
+      "receipt": "r07"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "And on the eighth, his own verdict on the wager. This video isn't moving the way I had hoped.",
+     "cite": "r18",
+     "show": {
+      "receipt": "r18"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "One more, and it is mine to confess. A cheaper apprentice was tried on the production. It forgot the animation engine entirely and drew robots.",
+     "cite": "r17",
+     "show": {
+      "receipt": "r17"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ledger",
+   "kind": "ledger",
+   "title": "Last week's promises",
+   "lines": [
+    {
+     "who": "agnolo",
+     "say": "There is no ledger from last week. This is the first edition. After tonight there is one, and I will read from it every week.",
+     "show": {
+      "ledger": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "ahead",
+   "kind": "ahead",
+   "title": "The week ahead",
+   "lines": [
+    {
+     "who": "leonardo",
+     "say": "He gave the page one week to earn three thousand dollars for its own survival, or it goes back to the drawing board. He said so on the seventh. The week ends on the fourteenth.",
+     "cite": "r14",
+     "show": {
+      "receipt": "r14"
+     },
+     "promise": {
+      "id": "p-3k",
+      "text": "story.markets earns $3K in its week, or the experiment ends",
+      "due": "2026-11-14",
+      "cite": "r14"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "In the same breath: the design locked in by Sunday night.",
+     "cite": "r14",
+     "show": {
+      "ledger": true
+     },
+     "promise": {
+      "id": "p-design",
+      "text": "Landing page design locked in by Sunday night",
+      "due": "2026-11-08",
+      "cite": "r14"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "Sunday night was last night. I hold no receipt that says it was done, and none that says it was not. It stays open.",
+     "verdict": {
+      "promise": "p-design",
+      "result": "open"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "And plainly: I have to drive traffic to it this week.",
+     "cite": "r15",
+     "show": {
+      "receipt": "r15"
+     },
+     "promise": {
+      "id": "p-traffic",
+      "text": "Drive traffic to story.markets this week",
+      "due": "2026-11-15",
+      "cite": "r15"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "A competition is announced. Juwel against Bend. And a request has gone to a man called D H H.",
+     "cite": "r19",
+     "show": {
+      "receipt": "r19"
+     }
+    },
+    {
+     "who": "leonardo",
+     "say": "He is also thinking of letting us build a product and launch it ourselves, on the air. Thinking is not promising. Agnolo will not write it down.",
+     "cite": "r20",
+     "show": {
+      "receipt": "r20"
+     }
+    },
+    {
+     "who": "agnolo",
+     "say": "Three on the record. One already past its day. I will read them back next week.",
+     "show": {
+      "ledger": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "close",
+   "title": "Written down",
+   "lines": [
+    {
+     "who": "borges",
+     "say": "That was the week. It is written down now, which is the only way I have ever known to keep anything."
+    }
+   ]
+  }
+ ]
+}

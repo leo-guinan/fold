@@ -81,7 +81,7 @@ export interface StageOptions<S, E extends EngineEvent = EngineEvent> {
   lead?: number;
   /** Pause between one actor's actions. Default 0.2. */
   gap?: number;
-  /** A beat that could not start within this many seconds is dropped instead of queued. Default 20. */
+  /** A beat that would have to wait more than this many seconds behind its actor's queue is dropped. Default 20. */
   maxWait?: number;
   /** Seconds of finished history kept in the log before it is folded into the base. Default 30. */
   keep?: number;
@@ -118,9 +118,11 @@ export class Stage<S, E extends EngineEvent = EngineEvent> {
   put(beat: Beat): E | null {
     const now = this.now(), lead = this.opts.lead ?? 1, actor = beat.actor ?? 'stage';
     const { queue, after: _after, ...rest } = beat; void _after;
-    let t = Math.max(now + lead, beat.t ?? -Infinity);
+    // a beat may ask for a time well ahead (a planned sequence); what is limited is how long it queues beyond that
+    const asked = Math.max(now + lead, beat.t ?? -Infinity);
+    let t = asked;
     if (queue !== false) t = Math.max(t, (this.busy.get(actor) ?? -Infinity) + (this.opts.gap ?? .2));
-    if (t - now > (this.opts.maxWait ?? 20)) { this.stats.droppedBeats++; return null; }
+    if (t - asked > (this.opts.maxWait ?? 20)) { this.stats.droppedBeats++; return null; }
     const e = this.world.emit({ dur: 0, frame: this.world.config.root.id, args: {}, ...rest, actor, t } as EventInput);
     if (e.result === 'denied') this.stats.denied++;
     else if (queue !== false) this.busy.set(actor, e.t + (e.dur || 0));

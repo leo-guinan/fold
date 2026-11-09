@@ -24,6 +24,7 @@
     "build": "tsc -p tsconfig.json && node tools/bundle.mjs",
     "test": "npm run build && node --test test/*.test.mjs",
     "demo": "npm run build && node tools/serve.mjs demos",
+    "live": "npm run build && node tools/room.mjs demos/live-desk/dist/show.mjs --journal out/live-desk.ndjson",
     "check": "tsc -p tsconfig.json --noEmit && tsc -p demos/tsconfig.json --noEmit"
   },
   "devDependencies": {

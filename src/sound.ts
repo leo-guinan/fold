@@ -71,6 +71,9 @@ export class LiveAudio {
   ctx: AudioContext | null = null;
   sounder: Sounder | null = null;
   enabled = true;
+  /** Everything this player sounds goes through here on its way to the speakers (and to any tap). */
+  out: GainNode | null = null;
+  private tapNode: MediaStreamAudioDestinationNode | null = null;
   private acBase = 0; private tBase = 0; private schedTo = 0; private timer: ReturnType<typeof setInterval> | null = null;
   private shots = new Map<number, { s: Sounder; gate: GainNode }>();
 
@@ -83,9 +86,16 @@ export class LiveAudio {
     try {
       const AC = (globalThis as any).AudioContext || (globalThis as any).webkitAudioContext;
       this.ctx = new AC(); await this.source.load?.(this.ctx!);
-      if (!this.opts.cut) this.sounder = this.source.create(this.ctx!, this.ctx!.destination);
-    } catch { this.ctx = null; this.sounder = null; }
+      this.out = this.ctx!.createGain(); this.out.connect(this.ctx!.destination);
+      if (!this.opts.cut) this.sounder = this.source.create(this.ctx!, this.out);
+    } catch { this.ctx = null; this.sounder = null; this.out = null; }
     if (!this.timer) this.timer = setInterval(() => this.pump(), this.opts.tick ?? 25);
+  }
+  /** The same sound as a media stream, for recording or broadcasting. Null until init() has made a context. */
+  tap(): MediaStream | null {
+    if (!this.ctx || !this.out) return null;
+    if (!this.tapNode) { this.tapNode = (this.ctx as AudioContext).createMediaStreamDestination(); this.out.connect(this.tapNode); }
+    return this.tapNode.stream;
   }
   get running(): boolean { return !!this.ctx && this.ctx.state === 'running'; }
   /** Scene time now: from the audio clock while playing, else the host's time. */
@@ -109,7 +119,7 @@ export class LiveAudio {
     else cut.shots.forEach((sh, i) => {
       const a = Math.max(from, sh.T0), b = Math.min(horizon, sh.T1); if (a >= b) return;
       let entry = this.shots.get(i);
-      if (!entry) { const gate = shotGate(this.ctx!, sh, out); gate.connect(this.ctx!.destination); entry = { s: this.source!.create(this.ctx!, gate), gate }; this.shots.set(i, entry); }
+      if (!entry) { const gate = shotGate(this.ctx!, sh, out); gate.connect(this.out!); entry = { s: this.source!.create(this.ctx!, gate), gate }; this.shots.set(i, entry); }
       entry.s.schedule(sh.src0 + (a - sh.T0) * sh.rate, sh.src0 + (b - sh.T0) * sh.rate, s => out(sh.T0 + (s - sh.src0) / sh.rate), speed * sh.rate);
     });
     this.schedTo = horizon;

@@ -45,10 +45,20 @@ export class Log<E extends EngineEvent = EngineEvent> {
     const e = ev as E;
     e.id = e.id || 'e' + (this.next++);
     e.result = e.result || 'ok';
-    this.events.push(e); this.inserted.push(e);
-    this.events.sort(byTime);
+    // Insert where a full sort would put it. The array is already in order, so a binary search finds the
+    // place; a live log takes an event every few seconds for days, and must not pay for a sort each time.
+    const list = this.events; let lo = 0, hi = list.length;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (byTime(list[mid], e) <= 0) lo = mid + 1; else hi = mid; }
+    list.splice(lo, 0, e); this.inserted.push(e);
     this.version++;
     return e;
+  }
+  /** Forget the first n events (in time order). Used by World.compact once they are folded into a checkpoint. */
+  dropFirst(n: number): E[] {
+    const gone = this.events.splice(0, n); const ids = new Set(gone.map(e => e.id));
+    const keep = this.inserted.filter(e => !ids.has(e.id)); this.inserted.length = 0; this.inserted.push(...keep);
+    this.version++;
+    return gone;
   }
   /** Mark the log changed after editing an event in place (for example, when it is denied). */
   touch(): void { this.version++; }

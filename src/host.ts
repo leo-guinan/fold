@@ -36,6 +36,11 @@ export interface PlayerOptions<S> {
   scale?: number;
   /** Called after each drawn frame (update a scrubber, captions in HTML…). */
   onFrame?(view: View<S>): void;
+  /** Live: the output time to show now (a Follower's clock). The player follows it instead of keeping its
+   * own time, never reaches an end, and can't be scrubbed. */
+  clock?(): number;
+  /** Live: how far sound may drift from the clock before it is re-anchored, in seconds. Default 0.25. */
+  resync?: number;
 }
 
 export class Player<S> {
@@ -60,14 +65,30 @@ export class Player<S> {
     this.opts.onFrame?.(v); return v;
   }
   seek(T: number): void { this.T = Math.max(0, Math.min(this.production.duration(), T)); this.audio.sync(); this.dirty = true; }
-  async play(): Promise<void> { await this.audio.init(); await this.audio.ctx?.resume(); if (this.T >= this.production.duration()) this.T = 0; this.playing = true; this.audio.sync(); this.dirty = true; }
+  async play(): Promise<void> {
+    await this.audio.init(); await this.audio.ctx?.resume();
+    if (this.opts.clock) this.T = this.opts.clock(); else if (this.T >= this.production.duration()) this.T = 0;
+    this.playing = true; this.audio.sync(); this.dirty = true;
+  }
+  /** Picture and sound as one media stream (for MediaRecorder, WebRTC, or tools/stream.mjs). Sound is
+   * included once play() has started the audio context. */
+  captureStream(fps = 30): MediaStream {
+    const stream = this.opts.canvas.captureStream(fps);
+    for (const track of this.audio.tap()?.getAudioTracks() ?? []) stream.addTrack(track);
+    return stream;
+  }
   pause(): void { this.playing = false; this.audio.sync(); this.dirty = true; }
   invalidate(): void { this.dirty = true; }
   /** Start the animation-frame loop. */
   start(): void {
     const frame = (now: number) => {
       const dt = Math.min(.1, (now - this.last) / 1000 || 0); this.last = now;
-      if (this.playing) {
+      if (this.playing && this.opts.clock) {
+        // live: the clock leads. Sound keeps its own steady time and is re-anchored only if it drifts.
+        const target = this.opts.clock(), heard = this.audio.running ? this.audio.now() : target;
+        if (Math.abs(heard - target) > (this.opts.resync ?? .25)) { this.T = target; this.audio.sync(); } else this.T = heard;
+        this.dirty = true;
+      } else if (this.playing) {
         this.T = this.audio.running ? this.audio.now() : this.T + dt * this.speed;
         if (this.T >= this.production.duration()) { this.T = this.production.duration(); this.pause(); }
         this.dirty = true;
@@ -93,6 +114,7 @@ export class Player<S> {
         const { wav, peak } = encodeWav(buf); return { b64: toBase64(wav), peak, dur };
       } : undefined,
       dump: () => p.world.log.dump(),
+      captureStream: (fps = 30) => this.captureStream(fps),
       ...extra,
     };
   }

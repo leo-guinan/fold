@@ -34,6 +34,7 @@ CC0. TypeScript, no runtime dependencies.
 | `sound` | `SoundSource` and `Sounder`; `LiveAudio` (the audio clock drives scene time), `renderOffline` (cut-aware) and `encodeWav` |
 | `host` | `Player` for the browser and `EngineHooks` (`window.__fold`) for the export tools |
 | `audit` | checks a production should pass: clean replay, determinism, one action at a time, captioned, on cue, cut fits |
+| `live` | a show with no end: `Stage` (the one writer, on show time), `Director` (signals to beats), `Follower` (a renderer's copy, a moment behind), journals |
 
 ## Quick start
 
@@ -84,6 +85,25 @@ A style receives `view`, which contains:
 
 It also receives `production`, which carries captions, envelopes and whatever else the scene exposes. Everything a style needs is a function of those two. A style never reads the clock and never mutates state. That is why two styles can render the same log frame-for-frame, and why export is deterministic.
 
+## Live
+
+The same log can be written while it plays. A control room takes signals from outside, stages them as events a second in the future, and serves the log as a feed. Any number of pages follow the feed and draw it; one of them can be recorded and sent to an RTMP ingest. Finished events are folded into a checkpoint as the show goes, so the log stays a few events long however many days it runs, and any stretch of a past show can be reopened from the journal and exported frame by frame.
+
+```
+signals ──▶ Director ──▶ Stage ──▶ feed ──▶ Follower ──▶ Player ──▶ pixels ──▶ stream
+            what it      when it            a renderer's copy of the world,
+            means here   happens            a moment behind
+```
+
+```sh
+npm run live                                                     # the Night Desk demo's control room, on :8790
+open http://127.0.0.1:8790/demos/live-desk/index.html
+curl -X POST http://127.0.0.1:8790/signal -d '{"id":"n1","kind":"note","source":"me","data":{"title":"Hello","text":"First card."}}'
+node tools/stream.mjs http://127.0.0.1:8790/demos/live-desk/index.html --to out/check.mp4 --seconds 30
+```
+
+One rule makes this work: once an event has ended, its effect must not depend on time. `world.compact(t)` checks that before it drops anything, and refuses with the reason if it doesn't hold. [docs/LIVE.md](docs/LIVE.md) has the architecture, the time model, what survives a restart, and what has and hasn't been tested.
+
 ## Tools
 
 - `npm run build`: compiles to `dist/esm` and bundles `dist/fold.iife.js` (global `Fold`) plus each demo.
@@ -91,12 +111,18 @@ It also receives `production`, which carries captions, envelopes and whatever el
 - `node tools/serve.mjs`: serves the repo, so you can open `demos/two-builders/index.html?style=terminal`.
 - `node tools/export.mjs <page> --out film.mp4 --layout 9x16 --scale 1`: renders an MP4 frame by frame (Playwright and ffmpeg) and muxes `renderAudio()`.
 - `node tools/stills.mjs <page> --times 1,4,8 --out sheet.png`: stills and contact sheets.
+- `node tools/room.mjs <show.mjs> [--journal file] [--signals <sse url>]`: the control room for a live show.
+- `node tools/stream.mjs <page url> --to rtmp://…|file`: broadcasts a live page in real time (Playwright and ffmpeg).
 
-Any page that sets `window.__fold` (see `EngineHooks`) can be exported.
+Any page that sets `window.__fold` (see `EngineHooks`) can be exported. The export tools also take a full `http://` URL, which is how a clip of a live show is cut from its control room's journal.
 
 ## Demo: two builders
 
 `demos/two-builders` is a 16-second scene with two styles, `geometric` and `terminal`. One builder sets up a bench. The other asks "Can I try?" and is refused: the drawer is already closed. Both styles draw the same log, and so do both layouts (16:9 and a 9:16 teaser cut).
+
+## Demo: the Night Desk
+
+`demos/live-desk` is a show with no end. A signal arrives (a watched page changed, someone sent a note) and a card is posted on the desk; a card with no headline is refused, and the refusal is shown; when nothing happens the desk checks the line. `show.ts` holds the ops and the rules for what signals mean, and runs in both the control room and the page. `style.ts` holds the look.
 
 ## In production
 

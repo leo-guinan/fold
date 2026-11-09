@@ -29,3 +29,23 @@ test('the teaser renders its own audio, cut with the picture', { skip: !openPage
     assert.ok(Math.abs(r.dur - 6.9) < .01 && r.peak > .05, `audio ${r.dur}s peak ${r.peak}`);
   } finally { await P.close(); }
 });
+
+test('a live page follows the control room: a signal becomes a card, on time', { skip: !openPage && 'playwright not installed', timeout: 60000 }, async () => {
+  const { spawn } = await import('node:child_process'); const net = await import('node:net');
+  const port = await new Promise(ok => { const s = net.createServer(); s.listen(0, '127.0.0.1', () => { const p = s.address().port; s.close(() => ok(p)); }); });
+  const room = spawn(process.execPath, ['tools/room.mjs', 'demos/live-desk/dist/show.mjs', '--port', String(port)], { stdio: 'ignore' });
+  let P;
+  try {
+    for (let i = 0; i < 100; i++) { try { if ((await fetch(`http://127.0.0.1:${port}/health`)).ok) break; } catch { /* not up yet */ } await new Promise(r => setTimeout(r, 50)); }
+    P = await openPage(`http://127.0.0.1:${port}/demos/live-desk/index.html`);
+    const shot = async () => hash(await P.page.screenshot({ clip: { x: 0, y: 80, width: 740, height: 300 } }));   // the card column
+    const empty = await shot();
+    await fetch(`http://127.0.0.1:${port}/signal`, { method: 'POST', body: JSON.stringify({ id: 't1', kind: 'note', source: 'test', data: { title: 'A card from a signal', text: 'drawn by a follower' } }) });
+    await P.page.waitForFunction(() => globalThis.__fold.health().events === 1, null, { timeout: 5000 });
+    assert.equal((await P.H('health')).late, 0, 'the event reached the page before its time');
+    await new Promise(r => setTimeout(r, 2500));
+    assert.notEqual(await shot(), empty, 'the card is on the desk');
+    const h = await P.H('health'); assert.equal(h.hellos, 1); assert.ok(h.t > 2, 'show time is running');
+    assert.equal(await P.H('duration'), Infinity); assert.deepEqual(P.errors, []);
+  } finally { await P?.close(); room.kill('SIGKILL'); }
+});

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two Builders — fold demo</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f6f1e8; --fg:#2b2622; --mute:#7a6f63; --line:#d9cdb9 }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141210; --fg:#ece5d8; --mute:#a1968a; --line:#3a332c } }
+  * { box-sizing: border-box } body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, sans-serif }
+  main { max-width: 1040px; margin: 0 auto; padding: 20px 16px 40px }
+  h1 { font-size: 20px; margin: 0 0 4px } p { margin: 0 0 14px; color: var(--mute) }
+  nav { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 12px } nav a { padding:5px 10px; border:1px solid var(--line); border-radius:999px; color:inherit; text-decoration:none; font-size:13px } nav a.on { background:var(--fg); color:var(--bg); border-color:var(--fg) }
+  canvas { width:100%; aspect-ratio:16/9; display:block; border-radius:10px; background:#000 }
+  .bar { display:flex; gap:10px; align-items:center; margin-top:10px } .bar input { flex:1 } button { font:inherit; padding:6px 14px; border-radius:8px; border:1px solid var(--line); background:transparent; color:inherit; cursor:pointer } #time { font: 12px ui-monospace, monospace; color:var(--mute); min-width: 92px; text-align:right }
+  body.export main { max-width:none; padding:0; margin:0 } body.export canvas { width:1280px; height:720px; border-radius:0 } body.export .chrome { display:none }
+</style></head>
+<body><main>
+  <div class="chrome"><h1>Two Builders</h1><p>One scene log, drawn by two styles that share no drawing code. The teaser is a cut of the same scene, with its own camera per layout.</p>
+  <nav><a href="?style=geometric">Geometric</a><a href="?style=terminal">Terminal</a><a href="?style=geometric&cut=teaser">Geometric teaser</a><a href="?style=terminal&cut=teaser">Terminal teaser</a></nav></div>
+  <canvas></canvas>
+  <div class="bar chrome"><button id="play">Play</button><input id="scrub" type="range" min="0" step="0.01" value="0"><span id="time"></span></div>
+</main><script type="module" src="dist/app.js"></script></body></html>

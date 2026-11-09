@@ -1,0 +1,42 @@
+{
+  "name": "fold-engine",
+  "version": "0.1.0",
+  "description": "An event-sourced animation engine. Everything on screen is folded from a log of checked events; styles draw it.",
+  "license": "CC0-1.0",
+  "type": "module",
+  "main": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    },
+    "./browser": "./dist/fold.iife.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "tools",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node tools/bundle.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "demo": "npm run build && node tools/serve.mjs demos",
+    "check": "tsc -p tsconfig.json --noEmit && tsc -p demos/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "typescript": "5.9"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    }
+  }
+}
